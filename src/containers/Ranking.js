@@ -4,10 +4,13 @@ import * as actions from '../actions/Ranking';
 
 
 const mapStateToProps = (state, ownProps) => ({
-  categoryId: ownProps.categoryId
+  categoryId: ownProps.categoryId,
+  category:   state.Ranking.category,
+  ranking:    state.Ranking.raning,
+  error:      state.Ranking.error
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch, ownProps) => ({
   // onMountとonUpdateをfetchRankingを接続
   onMount(categoryId) {
     dispatch(actions.fetchRanking(categoryId));
